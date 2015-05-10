@@ -11,23 +11,82 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
-<body ng-controller="">
+<body ng-controller="wsCalcCtrl">
 
 	<section id="heading">
 		<h1>Waitstaff Calculator</h1>
 	</section>
 
 	<section id="meal-details">
+		<h2>Meal Details</h2>
+		<form name="formMealDetails" novalidate ng-submit="submitNumbers()">
+			<table id="md-table">
+				<tr>
+					<td><label>Base meal price:</label></td>
+					<td>$<input name="base-price" type="text" placeholder="0.00"
+						required ng-model="data.basePrice" ng-pattern="/^[+-]?[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$/"/></td>
+				</tr>
+				<tr>
+					<td><label>Tax rate:</label></td>
+					<td><input name="tax-rate" type="text" placeholder="0.00"
+						required ng-model="data.taxRate" ng-pattern="/\d*\.?\d+%?/"/>%</td>
+				</tr>
+				<tr>
+					<td><label>Tip percentage:</label></td>
+					<td><input name="tip-rate" type="text" placeholder="0.00"
+						required ng-model="data.tipRate" ng-pattern="/\d*\.?\d+%?/"/>%</td>
+				</tr>
+			</table>
+			<div ng-if="formMealDetails.$submitted" ng-messages="formMealDetails.$error">
+				<p class="error" ng-message="required">Please fix the error</p>
+			</div>
+			<div id="md-buttons">
+				<input name="submitBtn" type="submit" value="Submit" />
+				<input name="cancelBtn" type="button" value="Cancel" ng-click="clearNumbers()"/>
+			</div>
+<!-- 			<pre>{{ formMealDetails | json}}</pre> -->
+		</form>
+
 
 	</section>
 
 	<section id="cust-charges">
-		
+		<h2>Customer Charges</h2>
+		<table id="cc-table">
+			<tr>
+				<td><label>Subtotal:</label></td>
+				<td>{{ data.subtotal | currency }}</td>
+			</tr>
+			<tr>
+				<td><label>Tip:</label></td>
+				<td>{{ data.tip | currency }}</td>
+			</tr>
+			<tr>
+				<td><label>Total:</label></td>
+				<td>{{ data.total | currency }}</td>
+			</tr>
+		</table>
 	</section>
 
 	<section id="earnings-info">
-		
+		<h2>Earnings Info</h2>
+		<table id="ei-table">
+			<tr>
+				<td><label>Total Tip:</label></td>
+				<td>{{ data.totalTip | currency }}</td>
+			</tr>
+			<tr>
+				<td><label>Meal Count:</label></td>
+				<td>{{ data.mealCount }}</td>
+			</tr>
+			<tr>
+				<td><label>Avg. Tip/Meal:</label></td>
+				<td>{{ data.totalTip/data.mealCount || 0.00 | currency}}</td>
+			</tr>
+		</table>
 	</section>
+
+	<input name="resetBtn" type="button" value="Reset" ng-click="resetNumbers()"/>
 
 </body>
 </html>
