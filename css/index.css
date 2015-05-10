@@ -7,6 +7,7 @@ html {
 	font-family: 'Lucida Sans Unicode', 'MS Sans Serif', sans-serif;
 }
 
+
 input[type='text'] {
 	border: none;
 	border-bottom: 1px dotted #666;
@@ -20,6 +21,11 @@ input[name='base-price'] {
 input[type='text']:focus {
 	outline: none;
 	border-bottom: 3px dotted #66E;
+}
+input[name='resetBtn'] {
+	position: absolute;
+	bottom: 0;
+	right: 10px;
 }
 .ng-submitted .ng-invalid,
 input.ng-dirty.ng-invalid {
@@ -39,10 +45,22 @@ input.ng-dirty.ng-valid {
 	left: 0;
 }
 
+
 h1 {
 	margin: 20px 0;
 	text-align: center;
 	font-weight: bold;
+}
+.container {
+	width: 260px;
+	margin: 0 auto;
+	position: relative;
+}
+.container::after {
+	content: "";
+	display: block;
+	clear: both;
+	height: 20px;
 }
 #meal-details,
 #cust-charges,
@@ -53,6 +71,23 @@ h1 {
 	margin: 0 auto 20px auto;
 	border: 1px solid orange;
 	border-radius: 5px;
+}
+@media screen and (min-width: 540px) {
+	.container {
+		width: 520px;
+	}
+	#meal-details,
+	#cust-charges,
+	#earnings-info {
+		margin: 0 10px 20px 10px;
+		display: inline-block;
+		float: left;
+	}
+}
+@media screen and (min-width: 820px) {
+	.container {
+		width: 780px;
+	}
 }
 h2 {
 	font-size: 1rem;
