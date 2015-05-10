@@ -1,17 +1,81 @@
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+html {
+	font-family: 'Lucida Sans Unicode', 'MS Sans Serif', sans-serif;
+}
+
 input[type='text'] {
 	border: none;
 	border-bottom: 1px dotted #666;
+	width: 32px;
+	text-align: right;
+}
+input[name='base-price'] {
+	width: 70px;
+	text-align: left;
 }
 input[type='text']:focus {
 	outline: none;
-	border-bottom: 2px dotted #66E;
+	border-bottom: 3px dotted #66E;
 }
-
 .ng-submitted .ng-invalid,
 input.ng-dirty.ng-invalid {
-	border-bottom: 2px dotted indianred;
+	border-bottom: 3px dotted indianred;
+}
+input.ng-dirty.ng-valid {
+	border-bottom: 3px dotted green;
+}
+.error {
+	color: indianred;
+}
+#error-msg {
+	position: absolute;
+	bottom: 2px;
+	text-align: center;
+	width: 100%;
+	left: 0;
 }
 
-input.ng-dirty.ng-valid {
-	border-bottom: 2px dotted green;
+h1 {
+	margin: 20px 0;
+	text-align: center;
+	font-weight: bold;
+}
+#meal-details,
+#cust-charges,
+#earnings-info {
+	position: relative;
+	width: 240px;
+	padding: 5px;
+	margin: 0 auto 20px auto;
+	border: 1px solid orange;
+	border-radius: 5px;
+}
+h2 {
+	font-size: 1rem;
+	margin: 0 -5px;
+	padding: 2px 7px;
+	border-bottom: 1px solid orange;
+}
+label {
+	font-size: 0.8rem;
+}
+tr td {
+		padding: 5px 0;
+		line-height: 1.4;
+}
+tr td:first-child {
+	text-align: right;
+	vertical-align: middle;
+}
+tr td:nth-child(2) {
+	font-size: 0.85rem;
+	vertical-align: middle;
+}
+#md-buttons {
+	margin: 2rem 0 1.5rem;
+	text-align: center;
 }

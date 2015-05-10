@@ -16,6 +16,8 @@ angular.module('wsCalcApp', ['ngMessages'])
 			$scope.data.basePrice = undefined;
 			$scope.data.taxRate   = undefined;
 			$scope.data.tipRate   = undefined;
+			$scope.formMealDetails.$setPristine();
+			$scope.formMealDetails.$setUntouched();
 		};
 
 		$scope.submitNumbers = function() {
