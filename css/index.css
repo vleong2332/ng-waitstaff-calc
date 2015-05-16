@@ -1,4 +1,5 @@
 /* GENERIC-LEVEL STYLE */
+
 * {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -15,6 +16,7 @@ html {
 
 
 /* NAVIGATION STYLE */
+
 nav {
 	text-align: center;
 	margin-bottom: 1em;
@@ -34,7 +36,8 @@ nav a.active {
 }
 
 
-/* */
+/* INDEX STYLE */
+
 h1 {
 	margin: 20px 0;
 	text-align: center;
@@ -44,6 +47,10 @@ h1 {
 	margin: 0 auto;
 	position: relative;
 }
+
+
+/* VIEW-LEVEL STYLE */
+
 #meal-details .container,
 #cust-charges .container,
 #earnings-info .container {
@@ -70,23 +77,6 @@ h1 {
 	border: 1px solid orange;
 	border-radius: 5px;
 }
-/*@media screen and (min-width: 540px) {
-	.container {
-		width: 520px;
-	}
-	#meal-details,
-	#cust-charges,
-	#earnings-info {
-		margin: 0 10px 20px 10px;
-		display: inline-block;
-		float: left;
-	}
-}*/
-/*@media screen and (min-width: 820px) {
-	.container {
-		width: 780px;
-	}
-}*/
 h2 {
 	font-size: 1rem;
 	margin: 0 -5px;
@@ -137,6 +127,32 @@ input[name='resetBtn'] {
 	margin: 0 auto 30px auto;
 }
 
+
+/* ANIMATION */
+
+.animate-view-container {
+	position: relative;
+	min-height: 100%;
+}
+.animate-view.ng-enter,
+.animate-view.ng-leave {
+	-webkit-transition: 0.5s ease-out all;
+ 	        transition: 0.5s ease-out all;
+	position: absolute;
+	top:    0;
+	left:   0;
+	right: 0;
+}
+.animate-view.ng-enter,
+.animate-view.ng-leave.ng-leave-active {
+	opacity: 0;
+	/*z-index: 100;*/
+}
+.animate-view.ng-enter.ng-enter-active,
+.animate-view.ng-leave {
+	opacity: 1;
+/*	z-index: 99;*/
+}
 
 .ng-submitted .ng-invalid,
 input.ng-dirty.ng-invalid {

@@ -1,4 +1,4 @@
-var WSCALC = angular.module('wsCalcApp', ['ngMessages', 'ngRoute']);
+var WSCALC = angular.module('wsCalcApp', ['ngMessages', 'ngRoute', 'ngAnimate']);
 
 
 WSCALC.factory('info', function() {
@@ -33,6 +33,19 @@ WSCALC.config(['$routeProvider', function($routeProvider) {
 		})
 		.otherwise('/');
 }]);
+
+
+WSCALC.run(function($rootScope, $timeout) {
+	$rootScope.$on('$routeChangeStart', function() {
+		$rootScope.isLoading = true;
+	});
+	//
+	$rootScope.$on('$routeChangeSuccess', function() {
+		$timeout(function() {
+			$rootScope.isLoading = false;
+		}, 500);
+	});
+});
 
 
 WSCALC.controller('navCtrl', function($scope, $location) {

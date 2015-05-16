@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-messages/angular-messages.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
 	<!-- Style -->
 	<link rel="stylesheet" type="text/css" href="css/index.css">
@@ -24,8 +25,10 @@
 		<a href="#/my-earnings" ng-class="{active: view == 3}" ng-click="view = 3">My Earnings</a>
 	</nav>
 
-	<div ng-view>
-		<!-- templateURL -->
+	<div class="animate-view-container">
+		<div ng-view class="animate-view">
+			<!-- templateURL -->
+		</div>
 	</div>
 
 </body>
