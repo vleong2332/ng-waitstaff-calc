@@ -1,0 +1,22 @@
+<section id="earnings-info">
+	<div class="container">
+		<h2>Earnings Info</h2>
+		<table id="ei-table">
+			<tr>
+				<td><label>Total Tip:</label></td>
+				<td>{{ data.totalTip | currency }}</td>
+			</tr>
+			<tr>
+				<td><label>Meal Count:</label></td>
+				<td>{{ data.mealCount }}</td>
+			</tr>
+			<tr>
+				<td><label>Avg. Tip/Meal:</label></td>
+				<td>{{ data.totalTip/data.mealCount || 0.00 | currency}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<input name="resetBtn" type="button" value="Reset" ng-click="resetNumbers()"/>
+
+</section>

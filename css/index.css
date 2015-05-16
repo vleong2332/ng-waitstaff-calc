@@ -1,3 +1,4 @@
+/* GENERIC-LEVEL STYLE */
 * {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -6,57 +7,54 @@
 html {
 	font-family: 'Lucida Sans Unicode', 'MS Sans Serif', sans-serif;
 }
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
 
 
-input[type='text'] {
-	border: none;
-	border-bottom: 1px dotted #666;
-	width: 32px;
-	text-align: right;
-}
-input[name='base-price'] {
-	width: 70px;
-	text-align: left;
-}
-input[type='text']:focus {
-	outline: none;
-	border-bottom: 3px dotted #66E;
-}
-input[name='resetBtn'] {
-	position: absolute;
-	bottom: 0;
-	right: 10px;
-}
-.ng-submitted .ng-invalid,
-input.ng-dirty.ng-invalid {
-	border-bottom: 3px dotted indianred;
-}
-input.ng-dirty.ng-valid {
-	border-bottom: 3px dotted green;
-}
-.error {
-	color: indianred;
-}
-#error-msg {
-	position: absolute;
-	bottom: 2px;
+/* NAVIGATION STYLE */
+nav {
 	text-align: center;
-	width: 100%;
-	left: 0;
+	margin-bottom: 1em;
+}
+nav a {
+	display: inline-block;
+	padding: 0.15em 0.75em;
+	margin-left: -5px;
+	border-right: 1px solid black;
+}
+nav a:last-child {
+	border-right: none;
+}
+nav a.active {
+	text-decoration: none;
+	font-weight: bold;
 }
 
 
+/* */
 h1 {
 	margin: 20px 0;
 	text-align: center;
 	font-weight: bold;
 }
 .container {
-	width: 260px;
 	margin: 0 auto;
 	position: relative;
 }
-.container::after {
+#meal-details .container,
+#cust-charges .container,
+#earnings-info .container {
+	width: 229px;
+}
+#description .container {
+	width: 520px;
+}
+#meal-details .container::after,
+#cust-charges .container::after,
+#earnings-info .container::after {
 	content: "";
 	display: block;
 	clear: both;
@@ -72,7 +70,7 @@ h1 {
 	border: 1px solid orange;
 	border-radius: 5px;
 }
-@media screen and (min-width: 540px) {
+/*@media screen and (min-width: 540px) {
 	.container {
 		width: 520px;
 	}
@@ -83,12 +81,12 @@ h1 {
 		display: inline-block;
 		float: left;
 	}
-}
-@media screen and (min-width: 820px) {
+}*/
+/*@media screen and (min-width: 820px) {
 	.container {
 		width: 780px;
 	}
-}
+}*/
 h2 {
 	font-size: 1rem;
 	margin: 0 -5px;
@@ -113,4 +111,47 @@ tr td:nth-child(2) {
 #md-buttons {
 	margin: 2rem 0 1.5rem;
 	text-align: center;
+}
+
+
+/* HOME PAGE STYLE */
+
+
+/* NEW MEAL STYLE */
+input[type='text'] {
+	border: none;
+	border-bottom: 1px dotted #666;
+	width: 32px;
+	text-align: right;
+}
+input[name='base-price'] {
+	width: 70px;
+	text-align: left;
+}
+input[type='text']:focus {
+	outline: none;
+	border-bottom: 3px dotted #66E;
+}
+input[name='resetBtn'] {
+	display: block;
+	margin: 0 auto 30px auto;
+}
+
+
+.ng-submitted .ng-invalid,
+input.ng-dirty.ng-invalid {
+	border-bottom: 3px dotted indianred;
+}
+input.ng-dirty.ng-valid {
+	border-bottom: 3px dotted green;
+}
+.error {
+	color: indianred;
+}
+#error-msg {
+	position: absolute;
+	bottom: 2px;
+	text-align: center;
+	width: 100%;
+	left: 0;
 }
