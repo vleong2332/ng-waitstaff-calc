@@ -35,8 +35,24 @@ WSCALC.config(['$routeProvider', function($routeProvider) {
 }]);
 
 
-WSCALC.controller('navCtrl', function($scope) {
-	$scope.view = 1;
+WSCALC.controller('navCtrl', function($scope, $location) {
+	switch($location.path()) {
+		case '/':
+			console.log('case 1');
+			$scope.view = 1;
+			break;
+		case '/new-meal':
+			console.log('case 2');
+			$scope.view = 2;
+			break;
+		case '/my-earnings':
+			console.log('case 3');
+			$scope.view = 3;
+			break;
+		default:
+			console.log('case 4');
+			$scope.view = 1;
+	}
 });
 
 
